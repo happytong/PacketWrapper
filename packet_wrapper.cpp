@@ -124,6 +124,9 @@ protected:
 template<typename Derived>
 class NetworkPacketGenerator : public NetworkPacket {
 public:
+    	NetworkPacket* clone() const override {
+        	return new Derived();
+    	}	
 	virtual std::string name() const {
 		return typeid(Derived).name();
 	}
